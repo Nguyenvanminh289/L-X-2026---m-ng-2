@@ -449,9 +449,15 @@
       card.appendChild(badge);
     }
     function updateProgress() {
-      var count = Object.keys(completedCards).length;
-      document.getElementById("progress-count").textContent = count;
-    }
+      var correctCount = 0;
+      var cards = ["so-thich", "con-so", "so-truong", "crush"];
+      
+      cards.forEach(function(id) {
+        var card = document.getElementById("card-" + id);
+        if (card && card.innerHTML.includes("rgb(0, 200, 83)") || card && card.innerHTML.includes("#00C853")) {
+          correctCount++;
+        }
+      });
     var fwCanvas = document.getElementById("fireworks-canvas");
     var fwCtx = fwCanvas.getContext("2d");
     var fwParticles = [];
